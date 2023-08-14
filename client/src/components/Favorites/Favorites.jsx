@@ -1,8 +1,17 @@
 import Card from "../Card/Card";
 import { connect } from "react-redux";
+import { Box, Button, HStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 const Favorites = ({myFavorites}) =>  {
     return(
-        <div>
+        <Box bgColor="black" p={123} h="700" >
+            <Box mb={10}>
+              <Button bg={"transparent"} color={"white"} padding={"20px"}>
+                <Link to="/" color="white"> HOME </Link>
+                </Button>  
+            </Box>
+            <HStack flexWrap='wrap' gap='10px' ml="30px" >
+      
         {
             myFavorites?.map(fav => {
                 return (
@@ -18,7 +27,8 @@ const Favorites = ({myFavorites}) =>  {
                 )
             })
         }
-        </div>
+        </HStack>
+        </Box>
     )
 }
 const mapStateToProps = (state) =>{

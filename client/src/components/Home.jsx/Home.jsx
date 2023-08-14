@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
 import Navbar from "../NavBar/Narbar";
 import { removeFav } from "../../redux/actions/actions";
-import { Flex, HStack } from "@chakra-ui/react";
+import { Flex, HStack, Box } from "@chakra-ui/react";
 import Paginado from "../Paginado/Paginado";
 const Home = ({onClose}) => {  
 
@@ -28,12 +28,11 @@ const Home = ({onClose}) => {
     
    
     return (
-       
-    <div>
-      <div>
+    <Box bgColor="black" sx={{ padding: "4rem" }} >
+      <Box mb="30px">
          <Navbar/>
-      </div>
-      <Flex flexWrap='wrap' gap='10px'>
+      </Box>
+      <HStack flexWrap='wrap' gap='30px' ml="30px" >
       
       {   
           charactersList?.map(({id, name, status, species, gender, origin, image}) =>{
@@ -49,11 +48,9 @@ const Home = ({onClose}) => {
        )
       }) 
  }
-   </Flex>
-   <div>
+   </HStack>
       <Paginado/>
-   </div>
-    </div>
+    </Box>
     )
  }
  export default Home;
