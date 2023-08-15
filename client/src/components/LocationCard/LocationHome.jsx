@@ -3,6 +3,7 @@ import{React, useEffect} from 'react';
 import { getLocation } from "../../redux/actions/actions";
 import LocationCard from "./LocationCard";
 import { Link } from "react-router-dom";
+import { Box, Button, HStack } from "@chakra-ui/react";
 const LocationHome = () => {
 const dispatch = useDispatch();  
 
@@ -17,12 +18,13 @@ const LocationsList = locations?.results
 
 return (
  
-<div>
-    <div>
-        <button>
+<Box bgColor="black">
+    <Box mb={10} >
+        <Button>
             <Link to='/'>HOME</Link>
-        </button>
-    </div>
+        </Button>
+    </Box>
+    <HStack flexWrap='wrap' gap='30px' ml="30px">
 {   
     LocationsList?.map(({id, name, type, dimension, residents, created}) =>{
  return(
@@ -37,7 +39,8 @@ return (
  )
 }) 
 }
-</div>
+</HStack>
+</Box>
 )
 }
 export default LocationHome;
